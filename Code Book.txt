@@ -1,0 +1,16 @@
+## Code Book
+
+This code book summarises the data fields in run_analysis.R. The .r file downloads data from "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", merged test and train datasets, provided descriptive information to the variables, extracted variables contain mean or standard deviation calculation and calculated an average value of variables grouped by activity and subject.
+
+Below are the variables used in run_analysis.R file.
+1. url              	vector variable      		- used to define source url.
+2. filelist         	vector variable      		- that contains the unziped file names downloaded from provided url.
+3. features        	data frame variable  		- contains data from features.txt file.
+4. features_labels   	vector variable      		- it will be used as data frame column name. It contain 564 characters, include unique key's label as well as all features from the features.txt file.
+5. test_df          	data frame variable  		- contains merge "test" data from subject_test, X_test, y_test .txt file. 
+6. train_df         	data frame variable  		- contains merge "train" data from subject_train, X_train, y_train .txt file.
+7. train_test_df   	data frame variable  		- contains merged data from train and test.
+8. narrow_df        	data frame variable  		- contains filtered dataset from `train_test`. This dataset only contain features that have mean or std variables.
+9. tidy_df         	data frame variable  		- it added description for activity variable by merge `narrow-df` and `activity` dataset using variable 'activity'.
+10.activity        	data frame variable  		- contains data from activity data file.
+11.mean_dataset   	data frame variable  		- this dataset contains calculated average on mean/std variables grouped by activity and subject.## Code Book
