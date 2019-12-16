@@ -43,7 +43,11 @@ tidy_df <-merge(narrow_df, activity, by="activity")
 
 
 #calculate mean for all mean/std variables group by "activity" then "subject".
-mean_dataset <-aggregate(.~tidy_df$activity +tidy_df$subject, data = tidy_df[4:82], mean)
+mean_dataset <-aggregate(.~tidy_df$activity +tidy_df$act_desc +tidy_df$subject, data = tidy_df[4:82], mean)
 
+#rename the group by columns
+colnames(mean_dataset)[1:3] <-c("activity", "description","subject")
+
+#generate mean_dataset in txt file.
 write.table(mean_dataset, file ="mean_dataset.txt", row.names = FALSE)
 
